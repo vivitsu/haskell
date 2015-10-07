@@ -23,3 +23,11 @@ sumDigits = foldr step 0
 validate :: Integer -> Bool
 validate x = (helper `rem` 10) == 0
   where helper = sumDigits . doubleEveryOther . toDigits $ x
+
+-- Towers of Hanoi
+type Peg = String
+type Move = (Peg, Peg)
+
+hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi 1 a b c = [(a, b)]
+hanoi n a b c = hanoi (n - 1) a c b ++ [(a, b)] ++ hanoi (n - 1) c b a
