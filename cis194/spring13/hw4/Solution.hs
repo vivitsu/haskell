@@ -30,8 +30,8 @@ map' f = foldr g []
 
 rmdups :: Eq a => [a] -> [a]
 rmdups [] = []
-rmdups (x:xs)   | x `elem` xs   = rmdups xs
-                | otherwise     = x : rmdups xs
+rmdups (x:xs) | x `elem` xs   = rmdups xs
+              | otherwise     = x : rmdups xs
 
 cartProd :: [a] -> [b] -> [(a, b)]
 cartProd xs ys = [ (x,y) | x <- xs, y <- ys ]
