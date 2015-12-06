@@ -1,4 +1,5 @@
 module Calc where
+import Expr
 import ExprT
 import Parser
 
@@ -11,3 +12,6 @@ evalStr :: String -> Maybe Integer
 evalStr s = case parseExp Lit Add Mul s of
         Just a -> Just (eval a)
         Nothing -> Nothing
+
+testExp :: Expr a => Maybe a
+testExp = parseExp lit add mul "(3 * -4) + 5"
