@@ -28,6 +28,8 @@ map' :: (a -> b) -> [a] -> [b]
 map' f = foldr g []
     where g a b = f a : b
 
+-- myFoldl ::  (b -> a -> b) -> b -> [a] -> b
+
 rmdups :: Eq a => [a] -> [a]
 rmdups [] = []
 rmdups (x:xs) | x `elem` xs   = rmdups xs
